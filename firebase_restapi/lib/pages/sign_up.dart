@@ -28,7 +28,7 @@ class _SignUpPageState extends State<SignUpPage> {
               obscureText: false,
               maxLines:1 ,
               decoration: const InputDecoration(
-                icon: Icon(Icons.mail),　
+                icon: Icon(Icons.mail),
                 hintText: 'メールアドレスを入力してください',
                 labelText: 'メールアドレス *',
               ),

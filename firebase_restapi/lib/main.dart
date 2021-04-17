@@ -2,8 +2,10 @@ import 'package:firebase_restapi/pages/home.dart';
 import 'package:firebase_restapi/pages/sign_in.dart';
 import 'package:firebase_restapi/pages/sign_up.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_dotenv/flutter_dotenv.dart' as DotEnv;
 
-void main() {
+Future<void> main() async {
+  await DotEnv.load(fileName: '.env'); // <-追加
   runApp(MyApp());
 }
 

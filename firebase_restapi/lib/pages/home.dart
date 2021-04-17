@@ -2,6 +2,7 @@ import 'dart:io';
 
 import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_dotenv/flutter_dotenv.dart';
 
 class HomePage extends StatelessWidget {
   @override
@@ -31,7 +32,8 @@ class HomePage extends StatelessWidget {
 
   Widget _OSName() {
     var os = _getCurrentOS().toString().substring(3);
-    return Text('$osで動作しています');
+    // return Text('$osで動作しています');
+    return Text(env['APIKEY']);
   }
 
   Widget _SignUpButton(BuildContext context) {
