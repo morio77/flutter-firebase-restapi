@@ -41,7 +41,7 @@ class _SignInPageState extends State<SignInPage> {
               obscureText: true,
               maxLines:1 ,
               decoration: const InputDecoration(
-                icon: Icon(Icons.mail),
+                icon: Icon(Icons.lock),
                 hintText: 'パスワードを入力してください',
                 labelText: 'パスワード *',
               ),

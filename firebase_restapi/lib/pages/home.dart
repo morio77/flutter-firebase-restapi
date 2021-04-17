@@ -1,3 +1,6 @@
+import 'dart:io';
+
+import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 
 class HomePage extends StatelessWidget {
@@ -12,13 +15,7 @@ class HomePage extends StatelessWidget {
         child: Column(
           mainAxisAlignment: MainAxisAlignment.spaceEvenly,
           children: [
-            Column(
-              mainAxisAlignment: MainAxisAlignment.center,
-              children: [
-                _OSIconImage(),
-                _OSName(),
-              ],
-            ),
+            _OSName(),
           Column(
             children: [
               _SignUpButton(context),
@@ -32,12 +29,9 @@ class HomePage extends StatelessWidget {
     );
   }
 
-  Widget _OSIconImage() {
-    return Image.asset('images/OSアイコンサンプル.png');
-  }
-
   Widget _OSName() {
-    return Text('MacOSで動作しています');
+    var os = _getCurrentOS().toString().substring(3);
+    return Text('$osで動作しています');
   }
 
   Widget _SignUpButton(BuildContext context) {
@@ -53,4 +47,38 @@ class HomePage extends StatelessWidget {
       child: Text('ログインする'),
     );
   }
+
+  OS _getCurrentOS() {
+    if (kIsWeb) {
+      return OS.Web;
+    }
+
+    if (Platform.isIOS) {
+      return OS.iOS;
+    }
+    else if (Platform.isAndroid) {
+      return OS.Android;
+    }
+    else if (Platform.isMacOS) {
+      return OS.MacOS;
+    }
+    else if (Platform.isWindows) {
+      return OS.Windows;
+    }
+    else if (Platform.isLinux) {
+      return OS.Linux;
+    }
+
+    return OS.None;
+  }
+}
+
+enum OS {
+  None,
+  iOS,
+  Android,
+  Web,
+  MacOS,
+  Windows,
+  Linux,
 }
