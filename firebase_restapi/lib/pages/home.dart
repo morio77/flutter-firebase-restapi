@@ -32,8 +32,7 @@ class HomePage extends StatelessWidget {
 
   Widget _OSName() {
     var os = _getCurrentOS().toString().substring(3);
-    // return Text('$osで動作しています');
-    return Text(env['APIKEY']);
+    return Text('$osで動作しています');
   }
 
   Widget _SignUpButton(BuildContext context) {
