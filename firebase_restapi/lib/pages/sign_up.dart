@@ -65,10 +65,9 @@ class _SignUpPageState extends State<SignUpPage> {
     try {
       final fbAuth = FirebaseAuth(client, apiKey, 'ja-JP');
       final account = await fbAuth.signUpWithPassword(emailTextEditingController.text, passwordTextEditingController.text);
+      final accountInfo = await account.getDetails();
 
-      print(await account.getDetails());
-
-      Navigator.pop(context);
+      await Navigator.popAndPushNamed(context, '/account_info', arguments: accountInfo);
 
     } catch (e) {
       print(e);

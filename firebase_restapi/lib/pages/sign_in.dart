@@ -50,7 +50,7 @@ class _SignInPageState extends State<SignInPage> {
             ),
             ElevatedButton(
               onPressed: () => SignInWithPassword(),
-              child: Text('登録する'),
+              child: Text('ログインする'),
             )
           ],
         ),
@@ -65,10 +65,9 @@ class _SignInPageState extends State<SignInPage> {
     try {
       final fbAuth = FirebaseAuth(client, apiKey, 'ja-JP');
       final account = await fbAuth.signInWithPassword(emailTextEditingController.text, passwordTextEditingController.text);
+      final accountInfo = await account.getDetails();
 
-      print(await account.getDetails());
-
-      Navigator.pop(context);
+      await Navigator.popAndPushNamed(context, '/account_info', arguments: accountInfo);
 
     } catch (e) {
       print(e);

@@ -1,3 +1,4 @@
+import 'package:firebase_restapi/pages/account_info.dart';
 import 'package:firebase_restapi/pages/home.dart';
 import 'package:firebase_restapi/pages/sign_in.dart';
 import 'package:firebase_restapi/pages/sign_up.dart';
@@ -22,7 +23,7 @@ class MyApp extends StatelessWidget {
         '/home': (context) => HomePage(),
         '/sign_up': (context) => SignUpPage(),
         '/sign_in': (context) => SignInPage(),
-        // '/account_info': (context) => GreenPage(),
+        '/account_info': (context) => AccountInfoPage(),
       },
     );
   }
